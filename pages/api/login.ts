@@ -1,5 +1,5 @@
 import type {NextApiRequest,NextApiResponse} from 'next'
-import {conectarMongoDb} from '../../middlewars/conectarMongoDB';
+import {conectarMongoDb} from '../../middlewars/conectarMongoDb';
 import type {RespostaPadraoMsg} from '../../types/RespostaPadraoMsg';
 import type {LoginResposta} from '../../types/LoginResposta';
 import md5 from 'md5';

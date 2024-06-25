@@ -2,7 +2,7 @@ import type {NextApiRequest, NextApiResponse,} from 'next';
 import type {RespostaPadraoMsg} from '../../types/RespostaPadraoMsg';
 import type {CadastroRequisicao} from '../../types/CadastroRequisicao';
 import  {UsuarioModel} from '../../models/UsuarioModel';
-import {conectarMongoDb} from '../../middlewars/conectarMongoDB';
+import {conectarMongoDb} from '../../middlewars/conectarMongoDb';
 import md5 from 'md5';
 import {upload, uploadImagemCosmic} from '../../services/uploudImagemCosmic';
 import nc from 'next-connect';
@@ -10,9 +10,7 @@ import nc from 'next-connect';
 const handler = nc()
      .use(upload.single('file'))
      .post(async ( req: NextApiRequest, res: NextApiResponse<RespostaPadraoMsg>) =>{
-    
-      
-          const usuario = req.body as CadastroRequisicao;   
+         const usuario = req.body as CadastroRequisicao;   
     
           if(!usuario.nome || usuario.nome.length < 2){
             return res.status(400).json({erro: 'Usuário Inválido(nome)'});
